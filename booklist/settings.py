@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'rest_framework',
+    'rest_framework.authtoken',
     'djoser',
 
     # Project-specific
@@ -144,3 +145,12 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [ 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly' ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+
+}

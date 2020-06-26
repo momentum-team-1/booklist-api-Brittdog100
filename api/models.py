@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from rest_framework.authtoken.models import Token
 
 MAX_FIELD_LEN = 63
 

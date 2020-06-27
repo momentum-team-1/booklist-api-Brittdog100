@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for token in tokens %}
+		<div class='token'>
+			<p>{{ token }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

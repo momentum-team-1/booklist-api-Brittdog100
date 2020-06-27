@@ -17,15 +17,20 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 
+import core.views as core_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include('djoser.urls')),
+
+    path('user/tokens', core_view.get_token, name = 'view_tokens'),
+    path('user/tokens/new', core_view.new_token, name = 'new_token')
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
-        path('auth/', include('djoser.urls')),
 
         # For django versions before 2.0:
         # url(r'^__debug__/', include(debug_toolbar.urls)),

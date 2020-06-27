@@ -8,3 +8,10 @@ def get_tokens(request):
 	if not request.user.is_authenticated:
 		return HttpResponse(status = 403)
 	tokens = Token.objects.filter(user = request.user)
+	return render(request, 'tokens.html', { 'tokens': tokens })
+
+def new_token(request):
+	if not request.user.is_authenticated:
+		return HttpResponse(status = 403)
+	token = Token(user = request.user)
+	return redirect('view_tokens')

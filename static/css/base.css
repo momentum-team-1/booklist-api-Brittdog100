@@ -1,0 +1,14 @@
+* {
+	font-family: sans-serif;
+}
+
+a.tokencode {
+	background-color: black;
+	color: black;
+	user-select: none;
+}
+
+a.tokencode#show {
+	background-color: white;
+	user-select: auto;
+}

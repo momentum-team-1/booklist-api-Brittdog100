@@ -17,14 +17,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 
-import core.views as core_view
+import api.views as api_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
 
-    path('user/tokens', core_view.get_token, name = 'view_tokens'),
-    path('user/tokens/new', core_view.new_token, name = 'new_token')
+    path('user/tokens', api_view.get_tokens, name = 'view_tokens'),
+    path('user/tokens/new', api_view.new_token, name = 'new_token')
 ]
 
 if settings.DEBUG:

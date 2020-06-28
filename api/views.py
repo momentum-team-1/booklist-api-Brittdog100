@@ -13,6 +13,5 @@ def get_tokens(request):
 def new_token(request):
 	if not request.user.is_authenticated:
 		return HttpResponse(status = 403)
-	token = Token(user = request.user)
-	token.save()
+	token = Token.objects.create(user = request.user)
 	return redirect('view_tokens')

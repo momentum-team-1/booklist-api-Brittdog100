@@ -18,11 +18,13 @@ from django.conf import settings
 from django.urls import include, path
 
 import api.views as api_view
+from api.rest import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
+    path('api/', include(router.urls)),
 
     path('user/tokens', api_view.get_tokens, name = 'view_tokens'),
     path('user/tokens/new', api_view.new_token, name = 'new_token')

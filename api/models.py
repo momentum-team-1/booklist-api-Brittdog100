@@ -16,6 +16,6 @@ class Book(models.Model):
 	user = models.ForeignKey(to = User, on_delete = models.CASCADE, related_name = "books")
 	title = models.CharField(max_length = MAX_FIELD_LEN)
 	author = models.CharField(max_length = MAX_FIELD_LEN)
-	page = models.IntegerField()
+	page = models.IntegerField(default = 1)
 	status = models.CharField(max_length = 1, choices = STATUS, default = '0')
 	start_date = models.DateField(auto_now_add = True)

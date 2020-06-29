@@ -1,4 +1,5 @@
 from rest_framework import routers, serializers, viewsets
+from rest_framework.decorators import action
 
 from .models import Book
 
@@ -21,5 +22,6 @@ class BookViewSet(viewsets.ModelViewSet):
 	def perform_create(self, serializer):
 		serializer.save(user = self.request.user)
 	def get_queryset(self):
-		return Book.objects.filter(user = self.request.user)
+		return Book.objects.all().filter(user = self.request.user)
+
 router.register('books', BookViewSet)
